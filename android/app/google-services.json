@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "573407838150",
+    "project_id": "budgetleaf-90041",
+    "storage_bucket": "budgetleaf-90041.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:573407838150:android:c1be7fbbb472c4d2b33cc7",
+        "android_client_info": {
+          "package_name": "com.meirusfandi.budgetleaf"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDQOQTpAvSovYQxfneqQBsxb4sMDxnzlZQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
