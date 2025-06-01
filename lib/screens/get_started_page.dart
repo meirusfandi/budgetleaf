@@ -1,6 +1,8 @@
+import 'package:budgetleaf/core/helper/prefs_helper.dart';
 import 'package:budgetleaf/core/utils/color.dart';
 import 'package:budgetleaf/core/utils/container.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 class GetStartedPage extends StatefulWidget {
   const GetStartedPage({super.key});
@@ -17,8 +19,9 @@ class _GetStartedPageState extends State<GetStartedPage> {
       bottomNavigationBar: Container(
         color: Colors.white,
         child: GestureDetector(
-          onTap: () {
-            
+          onTap: () async {
+            prefInstance.setString('isFirstTime', 'false');
+            context.replace('/home');
           },
           child: Container(
             width: double.infinity,
@@ -39,8 +42,8 @@ class _GetStartedPageState extends State<GetStartedPage> {
               ),
             ),
           ),
-        ),
-      ).padded(),
+        ).padded(),
+      ),
       body: SafeArea(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -62,32 +65,37 @@ class _GetStartedPageState extends State<GetStartedPage> {
             ),
             Expanded(
               flex: 2,
-              child: CustomPaint(
-                size: Size(MediaQuery.of(context).size.width,(MediaQuery.of(context).size.width*0.5).toDouble()),
-                painter: RPSCustomPainter(),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    const SizedBox(height: 16),
-                    const Text(
-                      'Welcome to BudgetLeaf 🌿',
-                      style: TextStyle(
-                        fontSize: 24,
-                        fontWeight: FontWeight.w600,
+              child: SizedBox(
+                width: double.infinity,
+                child: CustomPaint(
+                  painter: RPSCustomPainter(),
+                  size: const Size(double.infinity, double.infinity),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      const SizedBox(height: 16),
+                      const Text(
+                        'Welcome to BudgetLeaf 🌿',
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                          fontSize: 24,
+                          fontWeight: FontWeight.w600,
+                        ),
                       ),
-                    ),
-                    const SizedBox(height: 16),
-                    const Text(
-                      'Track your expenses and manage your budget effortlessly.',
-                      style: TextStyle(
-                        fontSize: 16,
-                        fontWeight: FontWeight.w400,
+                      const SizedBox(height: 16),
+                      const Text(
+                        'Track your expenses and manage your budget effortlessly.',
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                          fontSize: 16,
+                          fontWeight: FontWeight.w400,
+                        ),
                       ),
-                    ),
-                  ],
-                )
+                    ],
+                  ).horizontalpadded(24).verticalpadded(32)
+                ),
               ),
-            ),
+            ),                    
           ],
         ),
       ),
@@ -126,34 +134,19 @@ class RPSCustomPainter extends CustomPainter{
   
   @override
   void paint(Canvas canvas, Size size) {  
+    final paint = Paint()
+      ..color = Colors.white
+      ..style = PaintingStyle.fill;
 
-  // Layer 1
-  Paint paint_fill_0 = Paint()
-      ..color = const Color.fromARGB(255, 255, 255, 255)
-      ..style = PaintingStyle.fill
-      ..strokeWidth = size.width*0.00
-      ..strokeCap = StrokeCap.butt
-      ..strokeJoin = StrokeJoin.miter;
-     
-         
-    Path path_0 = Path();
-    path_0.moveTo(size.width*-0.0001417,size.height*0.3571857);
-    path_0.quadraticBezierTo(size.width*-0.0000354,size.height*0.8392964,0,size.height);
-    path_0.lineTo(size.width*1.0008333,size.height*0.9985714);
-    path_0.quadraticBezierTo(size.width*0.9980250,size.height*0.6949286,size.width*0.9976833,size.height*0.5720857);
-    path_0.cubicTo(size.width*0.8820250,size.height*0.3099429,size.width*0.0862250,size.height*0.5744714,size.width*-0.0001417,size.height*0.3571857);
-    path_0.close();
+    final path = Path();
+    path.moveTo(size.width*0.0010000,size.height*-0.0011571);
+    path.quadraticBezierTo(size.width*0.0002500,size.height*0.7497107,0,size.height);
+    path.lineTo(size.width*1.0008333,size.height*0.9985714);
+    path.quadraticBezierTo(size.width*1.0010250,size.height*0.4145714,size.width*1.0005500,size.height*0.2005571);
+    path.cubicTo(size.width*0.8507750,size.height*-0.0446286,size.width*0.1963583,size.height*0.2145000,size.width*0.0010000,size.height*-0.0011571);
+    path.close();
 
-    canvas.drawPath(path_0, paint_fill_0);
-  
-  // Layer 1
-  Paint paint_stroke_0 = Paint()
-      ..color = const Color.fromARGB(255, 33, 150, 243)
-      ..style = PaintingStyle.stroke
-      ..strokeWidth = size.width*0.00
-      ..strokeCap = StrokeCap.butt
-      ..strokeJoin = StrokeJoin.miter;
-    canvas.drawPath(path_0, paint_stroke_0);
+    canvas.drawPath(path, paint);
   }
 
   @override

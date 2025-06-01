@@ -60,6 +60,7 @@ dev_dependencies:
       ref: master
       path: hive_generator/
   json_serializable: ^6.6.1
+  analyzer: ^5.0.0
 
 flutter:
 
