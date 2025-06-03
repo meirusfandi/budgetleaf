@@ -12,7 +12,20 @@
           "package_name": "com.meirusfandi.budgetleaf"
         }
       },
-      "oauth_client": [],
+      "oauth_client": [
+        {
+          "client_id": "573407838150-te6qr4fj9bc90sl3m80rbtip4hn19he8.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.meirusfandi.budgetleaf",
+            "certificate_hash": "23e6c4841da1e895f8c4ea134978cca3a01ba7e0"
+          }
+        },
+        {
+          "client_id": "573407838150-qh8a1mjasugr7d59v11lh8rqf33i0uh0.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
       "api_key": [
         {
           "current_key": "AIzaSyDQOQTpAvSovYQxfneqQBsxb4sMDxnzlZQ"
@@ -20,7 +33,20 @@
       ],
       "services": {
         "appinvite_service": {
-          "other_platform_oauth_client": []
+          "other_platform_oauth_client": [
+            {
+              "client_id": "573407838150-qh8a1mjasugr7d59v11lh8rqf33i0uh0.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "573407838150-9emqovf82icsl8vk3brahuajdh6fjkn3.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.meirusfandi.budgetleaf",
+                "app_store_id": "6746642144"
+              }
+            }
+          ]
         }
       }
     }
